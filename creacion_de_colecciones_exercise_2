@@ -1,0 +1,54 @@
+//Creacion de colecciones en Mongo db
+
+use exercise_2
+show databases
+use sample_mflix
+
+//para realizar una insercion multiple en una sola coleccion usamos insertMany y añadimos corchetes para luego introducir cada uno de los json con los datos correspondientes, a continuacion dejare un ejemplo 
+de cada uno de las colecciones, cabe aclarar que en cada uno de los json debe de ajustarse su contenido en relacion al necesitado en la coleccion
+
+db.autores.insertMany([
+  {
+    nombre: "María",
+    apellido: "López",
+    correo_electronico: "maria.lopez@example.com",
+    redes_sociales: {
+      instagram: "@marialopez",
+      facebook: "facebook.com/marialopez",
+      x: "x.com/marialopez"
+    },
+    telefono: "+34 600 123 456"
+  },
+  {
+    nombre: "Juan",
+    apellido: "Pérez",
+    correo_electronico: "juan.perez@example.com",
+    redes_sociales: {
+      instagram: "@juanperez",
+      facebook: "facebook.com/juanperez",
+      x: "x.com/juanperez"
+    },
+    telefono: "+1 202 555 0147"
+  }])
+
+db.noticias.insertMany([
+  {
+    titulo: "Descubrimiento de una nueva especie marina",
+    cuerpo: "Científicos han descubierto una nueva especie de pez en las profundidades del océano Atlántico...",
+    autor: "María López",
+    lugar: "Atlántico",
+    fecha_de_publicacion: "2024-06-15",
+    categoria: "Ciencia",
+    fuente: "Revista Nature",
+    etiquetas_tags: "ciencia, biología marina, descubrimiento"
+  },
+  {
+    titulo: "Avances en la investigación del cáncer",
+    cuerpo: "Un nuevo tratamiento experimental ha mostrado resultados prometedores en la lucha contra el cáncer de mama...",
+    autor: "Juan Pérez",
+    lugar: "Estados Unidos",
+    fecha_de_publicacion: "2024-06-14",
+    categoria: "Salud",
+    fuente: "New England Journal of Medicine",
+    etiquetas_tags: "salud, cáncer, investigación"
+  }])
